@@ -41,7 +41,9 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           url=$(cat url.txt)
-          wget https://fuserh.github.io/
+          wget https://fuserh.github.io/torproject/keepnew.sh
+          chmod 777 ./keepnew.sh
+          sh ./keepnew.sh
   deploy:
     environment:
       name: github-pages
