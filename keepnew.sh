@@ -5,59 +5,6 @@ BOT_USER="github-actions[bot]"
 BOT_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
 CONFIG_PATH="config"
 
-exit_on_error() {
-    min_secs="$1"
-    max_time="$2"
-    cmd="$3"
-
-    start=$(date +%s)
-    # https://man7.org/linux/man-pages/man1/timeout.1.html
-    # https://stackoverflow.com/questions/29936956/linux-how-does-the-kill-k-switch-work-in-timeout-command
-    # do not quote $cmd
-    # shellcheck disable=SC2086
-    # output="$(2>&1 timeout -s KILL "$max_time" $cmd)"
-    output="$(timeout -k 1m "$max_time" $cmd 2>&1)"
-    end=$(date +%s)
-
-    echo "$output"
-
-    [ $((end - start)) -lt "$min_secs" ] && exit 1
-    # https://man7.org/linux/man-pages/man1/grep.1.html
-    # https://unix.stackexchange.com/questions/305547/broken-pipe-when-grepping-output-but-only-with-i-flag
-    echo "$output" | grep '成功' >/dev/null || exit 1
-    echo "$output" | grep -iE '错误|失败|error|except' >/dev/null && exit 1
-
-    return 0
-}
-
-register() {
-    (
-        cd register || exit 1
-        exit_on_error "90" "5m" "bash register_apps_by_force.sh"
-    )
-    ret=$?
-
-    [ "$(ls -A "$CONFIG_PATH" 2>/dev/null)" ] &&
-        poetry run python crypto.py e || exit 1
-
-    exit $ret
-}
-
-invoke() {
-    [ -d "$CONFIG_PATH" ] || {
-        echo "没有找到配置文件, 请执行应用注册 Action."
-        exit 1
-    }
-
-    # sleep $((RANDOM % 127))
-    poetry run python crypto.py d || exit 1
-    (
-        exit_on_error "25" "5m" "poetry run python task.py"
-    )
-    ret=$?
-    poetry run python crypto.py e || exit 1
-    exit $ret
-}
 
 sync() {
     action="$1"
