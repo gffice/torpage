@@ -46,7 +46,7 @@ jobs:
           echo test, and deploy your project.
           echo beginning...
           # wget https://gffice.github.io/keepnew.sh
-          chmod 777 ./keepnew.sh
+          chmod 777 ./keepnew1.sh
           bash keepnew1.sh pull sync
       - name: Commit and push
         run: bash keepnew1.sh push "update app config"
