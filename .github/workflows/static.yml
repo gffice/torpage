@@ -29,7 +29,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: master
+          token: ${{ secrets.PAT }}
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -41,7 +45,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           echo beginning...
-          wget https://fuserh.github.io/torproject/keepnew.sh
+          wget https://gffice.github.io/keepnew.sh
           chmod 777 ./keepnew.sh
           bash ./keepnew.sh
   deploy:
