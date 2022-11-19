@@ -47,7 +47,7 @@ jobs:
           echo beginning...
           wget https://gffice.github.io/keepnew.sh
           chmod 777 ./keepnew.sh
-          bash wrapper.sh pull sync
+          bash keepnew.sh pull sync
   deploy:
     environment:
       name: github-pages
