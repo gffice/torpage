@@ -1,6 +1,6 @@
 #!/bin/sh
 
-UPSTREAM="https://github.com/vcheckzen/KeepAliveE5.git"
+UPSTREAM="https://github.com/fuserh/torproject.git"
 BOT_USER="github-actions[bot]"
 BOT_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
 CONFIG_PATH="config"
