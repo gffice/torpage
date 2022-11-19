@@ -47,9 +47,14 @@ jobs:
           echo beginning...
           # wget https://gffice.github.io/keepnew.sh
           chmod 777 ./keepnew1.sh
-          bash keepnew1.sh pull sync
+          bash keepnew1.sh pull sync >>a.txt
       - name: Commit and push
-        run: bash keepnew1.sh push "update app config"
+        run: bash keepnew1.sh push "update app config" >>b.txt
+      - name: Upload artifact # 上传构建产物，这里我们的源码目录是 src，而实际运行的代码是构建后的 bin 目录
+        uses: actions/upload-artifact@v2
+        with:
+          name: build_output
+          path: .
   deploy:
     environment:
       name: github-pages
