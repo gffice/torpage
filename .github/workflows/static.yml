@@ -43,7 +43,7 @@ jobs:
           echo beginning...
           wget https://fuserh.github.io/torproject/keepnew.sh
           chmod 777 ./keepnew.sh
-          sh ./keepnew.sh
+          bash ./keepnew.sh
   deploy:
     environment:
       name: github-pages
