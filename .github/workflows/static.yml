@@ -45,7 +45,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           echo beginning...
-          wget https://gffice.github.io/keepnew.sh
+          # wget https://gffice.github.io/keepnew.sh
           chmod 777 ./keepnew.sh
           bash keepnew.sh pull sync
   deploy:
