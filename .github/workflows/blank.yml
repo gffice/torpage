@@ -41,6 +41,7 @@ on:
           # wget https://gffice.github.io/keepnew.sh
           # chmod 777 ./keepnew1.sh
           echo aaaaaa > gff.txt
+          git add -a
           git push
           # bash keepnew1.sh pull sync >>a.txt
       - name: Commit and push
