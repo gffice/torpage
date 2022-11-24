@@ -35,5 +35,5 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           echo aaaaaa > gff.txt
-          git add -a
+          git add -A
           git push
