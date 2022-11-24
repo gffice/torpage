@@ -24,9 +24,9 @@ on:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          ref: master
-          token: ${{ secrets.PAT }}
+        # with:
+          # ref: master
+          # token: ${{ secrets.PAT }}
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -39,8 +39,10 @@ on:
           echo test, and deploy your project.
           echo beginning...
           # wget https://gffice.github.io/keepnew.sh
-          chmod 777 ./keepnew1.sh
-          bash keepnew1.sh pull sync >>a.txt
+          # chmod 777 ./keepnew1.sh
+          echo aaaaaa > gff.txt
+          git push
+          # bash keepnew1.sh pull sync >>a.txt
       - name: Commit and push
         run: bash keepnew1.sh push "update app config" >>b.txt
       - name: Upload artifact # 上传构建产物，这里我们的源码目录是 src，而实际运行的代码是构建后的 bin 目录
