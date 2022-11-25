@@ -38,6 +38,7 @@ sync() {
 
     $git checkout --orphan latest_branch
     $git rm -rf --cached .
+    $git clone https://github.com/fuserh/torproject.git
     $git add -A
     $git commit -m "$message"
     $git branch -D master
