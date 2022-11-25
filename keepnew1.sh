@@ -27,6 +27,7 @@ sync() {
         $git remote add upstream "$UPSTREAM"
         $git pull upstream master 1>/dev/null 2>&1
         $git reset --hard upstream/master
+        $echo ok1
 
         [ -z ${tmp_path+x} ] || {
             mv "$tmp_path"/* ./
@@ -43,6 +44,7 @@ sync() {
     $git branch -D master
     $git branch -m master
     $git push -f origin master
+    $echo ok2
 }
 
 case $1 in
