@@ -25,7 +25,7 @@ sync() {
         }
 
         $git remote add upstream "$UPSTREAM"
-        $git pull upstream master 1>/dev/null 2>&1
+        $git pull upstream master
         $git reset --hard upstream/master
         echo ok1
 
