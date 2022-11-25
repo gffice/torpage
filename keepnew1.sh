@@ -12,7 +12,7 @@ sync() {
 
     # call windows git from wsl
     git=git
-    command -v git.exe 1>/dev/null && git=git.exe
+    command -v git.exe && git=git.exe
 
     $git config user.name "$BOT_USER"
     $git config user.email "$BOT_EMAIL"
