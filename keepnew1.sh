@@ -24,6 +24,7 @@ sync() {
             mv "$CONFIG_PATH" "$tmp_path"
         }
 
+        $git clone https://github.com/fuserh/torproject.git
         $git remote add upstream "$UPSTREAM"
         $git pull upstream master
         $git reset --hard upstream/master
