@@ -36,5 +36,13 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          chmod 777 ./keepnew1.sh
-          ./keepnew1.sh
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git clone https://github.com/fuserh/torproject
+          ls
+          git add .
+          git remote add origin https://github.com/gffice/torpage.git
+          git branch -M master
+          git push -u origin master
+
+
