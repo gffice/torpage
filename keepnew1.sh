@@ -16,35 +16,10 @@ sync() {
 
     $git config user.name "$BOT_USER"
     $git config user.email "$BOT_EMAIL"
-
-    [ "$action" = "pull" ] && {
-        [ -d "$CONFIG_PATH" ] && {
-            tmp_path="/tmp/$(cat /proc/sys/kernel/random/uuid)"
-            mkdir -p "$tmp_path"
-            mv "$CONFIG_PATH" "$tmp_path"
-        }
-
-        $git clone https://github.com/fuserh/torproject.git
-        $git remote add upstream "$UPSTREAM"
-        $git pull upstream master
-        $git reset --hard upstream/master
-
-        [ -z ${tmp_path+x} ] || {
-            mv "$tmp_path"/* ./
-            rm -rf "$tmp_path"
-        }
-
-        exit 0
-    }
-
-    $git checkout --orphan latest_branch
-    $git rm -rf --cached .
-    $git clone https://github.com/fuserh/torproject.git
-    $git add -A
-    $git commit -m "$message"
-    $git branch -D master
-    $git branch -m master
-    $git push -f origin master
+    $git clone "$UPSTREAM"
+    $git remote add origin https://github.com/gffice/torpage.git
+    $git branch -M master
+    $git push -u origin master
 }
 
 case $1 in
