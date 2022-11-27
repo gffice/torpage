@@ -1,4 +1,3 @@
-#!/bin/sh
 
 UPSTREAM="https://github.com/fuserh/torproject.git"
 BOT_USER="github-actions[bot]"
@@ -8,6 +7,7 @@ CONFIG_PATH="config"
 git config user.name "$BOT_USER"
 git config user.email "$BOT_EMAIL"
 git clone https://github.com/fuserh/torproject
+ls
 git add .
 git remote add origin https://github.com/gffice/torpage.git
 git branch -M master
