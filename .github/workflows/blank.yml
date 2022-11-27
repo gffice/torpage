@@ -41,8 +41,9 @@ jobs:
           git clone https://github.com/fuserh/torproject
           ls
           cd ./torproject
-          git remote add origin https://github.com/gffice/torpage.git
-          git branch -M master
-          git push -u origin master
-
+          git add -A
+          git commit -m "update pull"
+          git branch -D master
+          git branch -m master
+          git push -f origin master
 
