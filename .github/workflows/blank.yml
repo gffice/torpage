@@ -40,11 +40,10 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git clone https://github.com/fuserh/torproject
           ls
-          git add .
-          git commit
-          git push origin master
-          # git remote add origin https://github.com/gffice/torpage.git
-          # git branch -M master
-          # git push -u origin master
+          cd ./torproject
+          git init
+          git remote add origin https://github.com/gffice/torpage.git
+          git branch -M master
+          git push -u origin master
 
 
